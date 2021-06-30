@@ -11,13 +11,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title :string = 'Contador App';
-  numero: number = 10;
-  base  : number = 5;
 
-  acumular(valor:number){
-    //this hace referencia a la propiedad número de la clase
-    this.numero += valor;
-    console.log(this.numero, valor);
-  }
 }
