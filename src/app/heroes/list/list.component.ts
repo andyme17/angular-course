@@ -24,6 +24,6 @@ export class ListComponent implements OnInit {
    * un string o un undefined
    */
   deleteHeroe(){
-    this.heroeBorrado = this.heroes.pop() || 'Ya no hay más heroes que eliminar';
+    this.heroeBorrado = this.heroes.pop() || '';
   }
 }
