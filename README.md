@@ -1,27 +1,40 @@
-# Bases
+# Angular Bases
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.5.
 
-## Development server
+## Prerequisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Install nvm
 
-## Code scaffolding
+- For [_Windows_](https://github.com/coreybutler/nvm-windows)
+- For [_Linux_](https://github.com/nvm-sh/nvm)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Installation
 
-## Build
+1. Install node _version 4.17.0_
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+   `nvm install 14.17.0`
 
-## Running unit tests
+2. Specify the version of _Node.js_
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+   For _Windows_
 
-## Running end-to-end tests
+   `nvm use 14.17.0`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+   For _Linux_
 
-## Further help
+   `nvm use`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+3. Check node version and npm respectively
+
+   `node -v`
+
+   `npm -v`
+
+4. Install dependencies
+
+   `npm ci`
+
+5. Start a dev server and opens in a browser
+
+   `ng serve -o`
