@@ -3,14 +3,11 @@
 
 <div class="row">
   <div class="col">
-    <app-personajes [personajes]="personajes"></app-personajes>
+    <app-personajes></app-personajes>
   </div>
 
   <div class="col">
-    <!-- [nuevo], emite un nuevo personaje al componente hijo. (onNuevoPersonaje), es como (onclick) que
-    estará escuchando por sí el componente hijo emite algún elemento nuevo del formulario de agregar,
-    si lo recibe, manda llamar la función agregarPersonaje y le pasa el evento, es decir, el elemento nuevo-->
-    <app-agregar [nuevo]="nuevo" (onNuevoPersonaje)="agregarNuevoPersonaje($event)">
-    </app-agregar>
+    <!-- [nuevo], emite un nuevo personaje al componente hijo-->
+    <app-agregar [nuevo]="nuevo"></app-agregar>
   </div>
 </div>

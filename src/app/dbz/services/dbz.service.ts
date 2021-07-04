@@ -7,9 +7,9 @@ import { Personaje } from "../interfaces/dbz.interface";
 export class DbzService{
   /**
    *El servicio contendrá la información de los personajes,
-   *solo se manejará la información, aquí
+   *solo se manejará la información, aquí, por eso se coloca private
    */
-  personajes: Personaje[] = [
+  private _personajes: Personaje[] = [
     {
       nombre: 'Goku',
       poder: 15000
@@ -19,6 +19,12 @@ export class DbzService{
       poder: 7500
     }
   ]
+
+  get personajes(): Personaje[]{
+    /*retorna un arreglo de los personajes con el operador spread, clonamos el arreglo de
+      personajes para que este disponible para los otros componentes*/
+    return [...this._personajes];
+  }
 
   constructor(){
     console.log('Servicio inicializado');
