@@ -1,5 +1,8 @@
-import { Component, Input, Output, EventEmitter  } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
 import { Personaje } from '../interfaces/dbz.interface';
+
+import { DbzService } from './../services/dbz.service';
 
 @Component({
   selector: 'app-agregar',
@@ -12,8 +15,11 @@ export class AgregarComponent{
     poder: 0,
   };
 
+  //Inyectamos el servicio que contiene los personajes
+  constructor(private dbzService:DbzService){}
+
   //Creamos una propiedad que emitirá el nombre del personaje que se mande en el formulario al elemento padre
-  @Output() onNuevoPersonaje: EventEmitter<Personaje> = new EventEmitter();
+  //@Output() onNuevoPersonaje: EventEmitter<Personaje> = new EventEmitter();
 
   //cuando se le da submit al formulario, se ejecuta la siguiente función
   agregar(){
@@ -22,7 +28,9 @@ export class AgregarComponent{
     }
 
     //si el formulario si recibe datos, entonces ...
-    this.onNuevoPersonaje.emit(this.nuevo);//en la propiedad se emite el nuevo personaje al componente padre
+    this.dbzService.agregarPersonaje(this.nuevo);//enviamos al servicio el nuevo personaje
+
+    //this.onNuevoPersonaje.emit(this.nuevo);//en la propiedad se emite el nuevo personaje al componente padre
 
     //ya que se envía el personaje nuevo, se resetea en el formulario
     this.nuevo = {
