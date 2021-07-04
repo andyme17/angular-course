@@ -3,41 +3,14 @@
 
 <div class="row">
   <div class="col">
-    <h3>Personajes</h3>
-    <hr />
-    <ul>
-      <li *ngFor = "let personaje of personajes">
-        {{personaje.nombre}} - {{ personaje.poder | number}}
-      </li>
-    </ul>
+    <app-personajes [personajes]="personajes"></app-personajes>
   </div>
 
   <div class="col">
-    <h3>Agregar</h3>
-    <hr />
-    <form (ngSubmit)="agregar()">
-      <input
-        type="text"
-        name="nombre"
-        id="nombre"
-        placeholder="Nombre: "
-        [(ngModel)]="nuevo.nombre"
-      />
-      <!-- Con [(ngModel)] escuchas y emites un evento o propiedades,
-      en este caso escucha cualquier cambio en el input name nombre
-      y lo emite en nuevo.nombre -->
-
-      <!-- Otra forma de ver los datos enviados por el form
-          [value]="nuevo.nombre"
-          (input)="cambiarNombre($event)" -->
-      <input
-        type="number"
-        name="poder"
-        id="poder"
-        placeholder="Poder: "
-        [(ngModel)]="nuevo.poder"
-      />
-      <button type="submit">Agregar</button>
-    </form>
+    <!-- [nuevo], emite un nuevo personaje al componente hijo. (onNuevoPersonaje), es como (onclick) que
+    estará escuchando por sí el componente hijo emite algún elemento nuevo del formulario de agregar,
+    si lo recibe, manda llamar la función agregarPersonaje y le pasa el evento, es decir, el elemento nuevo-->
+    <app-agregar [nuevo]="nuevo" (onNuevoPersonaje)="agregarNuevoPersonaje($event)">
+    </app-agregar>
   </div>
 </div>

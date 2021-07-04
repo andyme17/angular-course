@@ -1,9 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
-interface Personaje {
-  nombre: string;
-  poder: number;
-}
+import { Component, Input } from '@angular/core';
+import { Personaje } from '../interfaces/dbz.interface';
 
 @Component({
   selector: 'app-main-page',
@@ -24,20 +20,13 @@ export class MainPageComponent {
   ]
 
   nuevo: Personaje = {
-    nombre: '',
-    poder: 0,
+    nombre: 'Trunks',
+    poder: 456450,
   };
 
-  agregar(){
-    if(this.nuevo.nombre.trim().length === 0){
-      return;
-    }
-
-    this.personajes.push(this.nuevo);
-
-    this.nuevo = {
-      nombre: '',
-      poder: 0
-    };
+  //Función que recibe el elemento nuevo que envia el componente hijo
+  agregarNuevoPersonaje(argumento: Personaje){
+    //el nuevo elemento se ingresa al final del arreglo personajes que esta declarado en este archivo
+    this.personajes.push(argumento);
   }
 }
