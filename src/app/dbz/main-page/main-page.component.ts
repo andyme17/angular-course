@@ -10,12 +10,15 @@ import { DbzService } from './../services/dbz.service';
   styleUrls: ['./main-page.component.css'],
 })
 export class MainPageComponent {
-  personajes: Personaje[] = [];
-
   nuevo: Personaje = {
     nombre: 'Trunks',
     poder: 456450,
   };
+
+  //Obtenemos los personajes mediante un getter
+  get personajes(): Personaje[]{
+    return this.dbzServices.personajes;
+  }
 
   //Función que recibe el elemento nuevo que envia el componente hijo
   agregarNuevoPersonaje(argumento: Personaje){
@@ -26,8 +29,5 @@ export class MainPageComponent {
   /**
    * Se inyecta en el constructor, el servicio creado para el módulo
    */
-  constructor( private dbzServices: DbzService){
-    //Al arreglo personajes se le asignan los personajes que vienen del servicio importado
-    this.personajes = this.dbzServices.personajes;
-  }
+  constructor( private dbzServices: DbzService){ }
 }
