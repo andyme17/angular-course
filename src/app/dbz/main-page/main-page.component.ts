@@ -1,5 +1,8 @@
 import { Component, Input } from '@angular/core';
+
 import { Personaje } from '../interfaces/dbz.interface';
+
+import { DbzService } from './../services/dbz.service';
 
 @Component({
   selector: 'app-main-page',
@@ -7,17 +10,7 @@ import { Personaje } from '../interfaces/dbz.interface';
   styleUrls: ['./main-page.component.css'],
 })
 export class MainPageComponent {
-
-  personajes: Personaje[] = [
-    {
-      nombre: 'Goku',
-      poder: 15000
-    },
-    {
-      nombre: 'Vegeta',
-      poder: 7500
-    }
-  ]
+  personajes: Personaje[] = [];
 
   nuevo: Personaje = {
     nombre: 'Trunks',
@@ -28,5 +21,13 @@ export class MainPageComponent {
   agregarNuevoPersonaje(argumento: Personaje){
     //el nuevo elemento se ingresa al final del arreglo personajes que esta declarado en este archivo
     this.personajes.push(argumento);
+  }
+
+  /**
+   * Se inyecta en el constructor, el servicio creado para el módulo
+   */
+  constructor( private dbzServices: DbzService){
+    //Al arreglo personajes se le asignan los personajes que vienen del servicio importado
+    this.personajes = this.dbzServices.personajes;
   }
 }

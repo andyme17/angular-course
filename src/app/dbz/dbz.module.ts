@@ -6,6 +6,8 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { PersonajesComponent } from './personajes/personajes.component';
 import { AgregarComponent } from './agregar/agregar.component';
 
+import { DbzService } from './services/dbz.service';
+
 @NgModule({
   declarations: [
     MainPageComponent,
@@ -18,6 +20,11 @@ import { AgregarComponent } from './agregar/agregar.component';
   ],
   exports:[
     MainPageComponent
+  ],
+  /*en los providers se indican los servicios, estos servicios funcionan como singletons
+  que son una única instancia que se va a tener a lo largo de todo el modulo*/
+  providers:[
+    DbzService
   ]
 })
 export class DbzModule { }
